@@ -24,4 +24,5 @@ urlpatterns = [
     path('plans/<int:pk>', views.plan, name='plan'),
     path('auth/', include('django.contrib.auth.urls')),
     path('auth/signup', views.SignUp.as_view(), name='signup'),
+    path('join', views.join, name='join'),
 ]

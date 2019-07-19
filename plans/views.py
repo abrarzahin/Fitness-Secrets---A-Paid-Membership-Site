@@ -15,6 +15,9 @@ def plan(request,pk):
         return redirect('join')
     else:
         return render(request, 'plans/plan.html', {'plan':plan})
+        
+def join(request):
+    return render(request, 'plans/join.html')
 
 
 
