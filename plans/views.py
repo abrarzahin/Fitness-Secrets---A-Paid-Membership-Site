@@ -7,3 +7,10 @@ from .models import FitnessPlan
 def home(request):
     plans = FitnessPlan.objects
     return render(request, 'plans/home.html', {'plans':plans})
+
+def plan(request,pk):
+    plan = get_object_or_404(FitnessPlan, pk=pk)
+    if plan.premium :
+        return redirect('join')
+    else:
+        return render(request, 'plans/plan.html', {'plan':plan})
