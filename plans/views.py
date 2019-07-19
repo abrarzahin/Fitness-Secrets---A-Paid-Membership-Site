@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404, redirect
-
+from .forms import CustomSignupForm
 from django.urls import reverse_lazy
 from django.views import generic
 from .models import FitnessPlan
+from django.contrib.auth import authenticate, login
 
 def home(request):
     plans = FitnessPlan.objects
@@ -16,6 +17,13 @@ def plan(request,pk):
         return render(request, 'plans/plan.html', {'plan':plan})
 
 
+
+
+
+    class SignUp(generic.CreateView):
+    form_class = CustomSignupForm
+    success_url = reverse_lazy('home')
+    template_name = 'registration/signup.html'
 
     
 
