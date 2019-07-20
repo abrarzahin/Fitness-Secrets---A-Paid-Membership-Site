@@ -27,10 +27,11 @@ def settings(request):
 def settings(request):
     return render(request, 'registration/settings.html')
 
-    class SignUp(generic.CreateView):
+class SignUp(generic.CreateView):
     form_class = CustomSignupForm
     success_url = reverse_lazy('home')
     template_name = 'registration/signup.html'
+
 
     def form_valid(self, form):
         valid = super(SignUp, self).form_valid(form)
